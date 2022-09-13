@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>
 #include "Option.hpp"
 #include "BlackScholesModel.hpp"
 #include "pnl/pnl_random.h"

@@ -5,6 +5,6 @@ class BasketOption : public Option
 {
   public:
     double strike;
-     PnlVect* payoffCoefficientsVector;
+    PnlVect* payoffCoefficientsVector;
     double payoff(const PnlMat* path);
 };
