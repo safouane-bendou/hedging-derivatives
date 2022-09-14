@@ -29,20 +29,20 @@ void BlackScholesModel::asset(PnlMat* path, double T, int nbTimeSteps, PnlRng* r
     double scaleCholeskyGaussian;
     double computedSpot;
     double timeStep = T / nbTimeSteps;
-    pnlMat *cholesky = pnl_mat_create_from_scalar(size_, size_, rho_);
+    PnlMat *cholesky = pnl_mat_create_from_scalar(size_, size_, rho_);
     for(int i = 0; i < size_; i++)
     {
         pnl_mat_set_diag(cholesky, rho_, 1);
     }
     pnl_mat_chol(cholesky);
-    pnlMat * gaussian = pnl_mat_create(nbTimeSteps + 1, size_);
+    PnlMat * gaussian = pnl_mat_create(nbTimeSteps + 1, size_);
     pnl_mat_rng_normal(gaussian, nbTimeSteps + 1, size_, rng);
     pnl_mat_set_row(path, spot_, 0);
     //initiating
-    pnlVect * choleskyComponent = pnl_vect_create(size_);
-    pnlVect * gaussianVector = pnl_vect_create(nbTimeSteps + 1);
-    pnlVect * nextSpots = pnl_vect_create(size_);
-    pnlVect * currentSpots = pnl_vect_create(size_);
+    PnlVect * choleskyComponent = pnl_vect_create(size_);
+    PnlVect * gaussianVector = pnl_vect_create(nbTimeSteps + 1);
+    PnlVect * nextSpots = pnl_vect_create(size_);
+    PnlVect * currentSpots = pnl_vect_create(size_);
     pnl_mat_get_row(currentSpots, path, 0);
     for(int i = 1; i < nbTimeSteps + 1; i ++)
     {
@@ -74,13 +74,13 @@ void BlackScholesModel::asset(PnlMat* path, double T, int nbTimeSteps, PnlRng* r
  * @param[in] T date jusqu'à laquelle on simule la trajectoire
  * @param[in] past trajectoire réalisée jusqu'a la date t
  */
-void asset(PnlMat* path, double t, double T, int nbTimeSteps, PnlRng* rng, const PnlMat* past)
+void BlackScholesModel::asset(PnlMat* path, double t, double T, int nbTimeSteps, PnlRng* rng, const PnlMat* past)
 {   
     double volatility;
     double scaleCholeskyGaussian;
     double computedSpot;
     double timeStep = T / nbTimeSteps;
-    pnlMat *cholesky = pnl_mat_create_from_scalar(size_, size_, rho_);
+    PnlMat *cholesky = pnl_mat_create_from_scalar(size_, size_, rho_);
     for(int d = 0; d < size_; d++)
     {
         pnl_mat_set_diag(cholesky, d, 1);
@@ -88,14 +88,14 @@ void asset(PnlMat* path, double t, double T, int nbTimeSteps, PnlRng* rng, const
     pnl_mat_chol(cholesky);
     pnl_mat_clone(path, past);
     int startingStep = past->m;
-    pnlMat * gaussian = pnl_mat_create(nbTimeSteps + 1 - startingStep, size_);
+    PnlMat * gaussian = pnl_mat_create(nbTimeSteps + 1 - startingStep, size_);
     pnl_mat_rng_normal(gaussian, nbTimeSteps + 1, size_, rng);
     pnl_mat_set_row(path, spot_, 0);
     //initiating
-    pnlVect * choleskyComponent = pnl_vect_create(size_);
-    pnlVect * gaussianVector = pnl_vect_create(nbTimeSteps + 1 - startingStep);
-    pnlVect * nextSpots = pnl_vect_create(size_);
-    pnlVect * currentSpots = pnl_vect_create(size_);
+    PnlVect * choleskyComponent = pnl_vect_create(size_);
+    PnlVect * gaussianVector = pnl_vect_create(nbTimeSteps + 1 - startingStep);
+    PnlVect * nextSpots = pnl_vect_create(size_);
+    PnlVect * currentSpots = pnl_vect_create(size_);
     pnl_mat_get_row(currentSpots, path, startingStep);
     for(int i = startingStep + 1; i < nbTimeSteps + 1; i++)
     {

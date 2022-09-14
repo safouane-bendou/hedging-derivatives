@@ -28,4 +28,4 @@ double AsianOption::payoff(const PnlMat* path)
     }
 
 }
-AsianOption::~AsianOption(){};
+//AsianOption::~AsianOption(){};

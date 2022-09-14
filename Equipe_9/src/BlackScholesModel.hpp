@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 #include "pnl/pnl_random.h"
 #include "pnl/pnl_vector.h"

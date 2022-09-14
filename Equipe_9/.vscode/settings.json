@@ -6,6 +6,7 @@
         "initializer_list": "cpp",
         "ranges": "cpp",
         "utility": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "iostream": "cpp"
     }
 }

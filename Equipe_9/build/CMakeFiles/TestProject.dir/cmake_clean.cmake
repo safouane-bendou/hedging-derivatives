@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TestProject.dir/src/BasketOption.cpp.o.d"
   "CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.o"
   "CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.o.d"
+  "CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.o"
+  "CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.o.d"
   "CMakeFiles/TestProject.dir/src/TestProject.cpp.o"
   "CMakeFiles/TestProject.dir/src/TestProject.cpp.o.d"
   "CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o"

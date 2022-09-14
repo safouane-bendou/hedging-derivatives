@@ -60,7 +60,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build
+CMAKE_BINARY_DIR = /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build/CMakeFiles /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -240,6 +240,30 @@ src/BlackScholesModel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.s
 .PHONY : src/BlackScholesModel.cpp.s
 
+src/MonteCarlo.o: src/MonteCarlo.cpp.o
+.PHONY : src/MonteCarlo.o
+
+# target to build an object file
+src/MonteCarlo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.o
+.PHONY : src/MonteCarlo.cpp.o
+
+src/MonteCarlo.i: src/MonteCarlo.cpp.i
+.PHONY : src/MonteCarlo.i
+
+# target to preprocess a source file
+src/MonteCarlo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.i
+.PHONY : src/MonteCarlo.cpp.i
+
+src/MonteCarlo.s: src/MonteCarlo.cpp.s
+.PHONY : src/MonteCarlo.s
+
+# target to generate assembly for a file
+src/MonteCarlo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.s
+.PHONY : src/MonteCarlo.cpp.s
+
 src/TestProject.o: src/TestProject.cpp.o
 .PHONY : src/TestProject.o
 
@@ -363,6 +387,9 @@ help:
 	@echo "... src/BlackScholesModel.o"
 	@echo "... src/BlackScholesModel.i"
 	@echo "... src/BlackScholesModel.s"
+	@echo "... src/MonteCarlo.o"
+	@echo "... src/MonteCarlo.i"
+	@echo "... src/MonteCarlo.s"
 	@echo "... src/TestProject.o"
 	@echo "... src/TestProject.i"
 	@echo "... src/TestProject.s"

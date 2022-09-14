@@ -13,7 +13,7 @@ void MonteCarlo::price(double& prix, double& std_dev){
     // Calcul du prix
     int n = (opt_->nbTimeSteps_)+1;
     int nombreActifs = (mod_->size_);
-     PnlMat* path = pnl_mat_create (n, nombreActifs);   
+    PnlMat* path = pnl_mat_create (n, nombreActifs);   
     PnlVect* ActionPrices = pnl_vect_create(n);
     double sum = 0;
     double sumDesCarres = 0;
