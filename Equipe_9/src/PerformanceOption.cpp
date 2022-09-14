@@ -2,39 +2,39 @@
 
 using namespace std;
 
-double
-BasketOption::payoff(const PnlMat* path)
+
+
+PerformanceOption::PerformanceOption(double T, int nbTimeSteps, int size, PnlVect* payoffCoefficientsVector)
+{
+    T_ = T;
+    nbTimeSteps_ = nbTimeSteps;
+    size_ = size;
+    payoffCoefficientsVector_ = payoffCoefficientsVector;
+}
+
+double PerformanceOption::payoff(const PnlMat* path)
 {
     
   
-    double overallSum= 0;
+    double overallSum= 1;
+    double sum = 0;
 
-    for(int i=0; i<nbTimesSteps_; i++) { // or nb+1
+    for(int i=0; i<nbTimeSteps_; i++) { 
 
-        PnlVect* ActionPricesInT = pnl_vect_create(size_);
-    
-        pnl_mat_get_col(ActionPricesInT, i);
+        PnlVect* ActionPricesDateII = pnl_vect_create(size_);
+        PnlVect* ActionPricesDateI = pnl_vect_create(size_);
+        pnl_mat_get_row(ActionPricesDateII, path, i+1);
+        pnl_mat_get_row(ActionPricesDateI, path, i);
 
-        double firstSum = 0;
-        double secondSum= 0;
-        double result=0;
-        for(int d = 0; d < size_+; d++) {
-            firstSum += pnl_vect_get(ActionPricesInT, d) * pnl_vect_get(payoffCoefficientsVector, d);
+        sum = (pnl_vect_scalar_prod(payoffCoefficientsVector, ActionPricesDateII)) / pnl_vect_scalar_prod(payoffCoefficientsVector, ActionPricesDateI) - 1;
+        if (sum > 0) {
+            overallSum += sum;
         }
-
-        for(int d =0; i<size_+; i++) {
-            secondSum += pnl_vect_get(ActionPricesInt, d-1) * pnl_vect_get(payoffCoefficientsVector, d);
-        }
-        
-        result=firstSum/ secondSum -1;
-        if (result < 0) {
-            result= 0;
-        }
-
-        overallsum += result;
 
     }
-    double interimPayoff = overallSum + 1;
-    return interimPayoff;
+ 
+    return overallSum;
     
 }
+
+PerformanceOption::~PerformanceOption(){};

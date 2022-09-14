@@ -47,6 +47,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/TestProject.dir/DependInfo.cmake"
   "CMakeFiles/mc-example.dir/DependInfo.cmake"
   "CMakeFiles/test-parser.dir/DependInfo.cmake"
   "src/jlparser/CMakeFiles/parser-test.dir/DependInfo.cmake"

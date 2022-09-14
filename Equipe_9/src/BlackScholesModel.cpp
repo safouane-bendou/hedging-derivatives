@@ -1,6 +1,19 @@
 #include <iostream>
 #include "BlackScholesModel.hpp"
 
+
+
+
+BlackScholesModel::BlackScholesModel(int size, double r, double rho, PnlVect* sigma, PnlVect* spot)
+{
+    size_ = size;
+    r_ = r;
+    rho_ = rho;
+    sigma_ = sigma;
+    spot_ = spot; 
+}
+
+
 /**
  * Génère une trajectoire du modèle et la stocke dans path
  *
@@ -40,7 +53,7 @@ void BlackScholesModel::asset(PnlMat* path, double T, int nbTimeSteps, PnlRng* r
             pnl_mat_get_row(choleskyComponent, cholesky, d);
             volatility = pnl_vect_get(sigma_, d);
             scaleCholeskyGaussian = pnl_vect_scalar_prod(choleskyComponent, gaussianVector);
-            computedSpot = pnl_vect_get(currentSpots, d) * exp((r - volatility * volatility / 2) * timeStep + volatility * sqrt(timeStep) * scaleCholeskyGaussian);
+            computedSpot = pnl_vect_get(currentSpots, d) * exp((r_ - volatility * volatility / 2) * timeStep + volatility * sqrt(timeStep) * scaleCholeskyGaussian);
             pnl_vect_set(nextSpots, d, computedSpot);
         }
         pnl_mat_set_row(path, nextSpots, i);
@@ -68,9 +81,9 @@ void asset(PnlMat* path, double t, double T, int nbTimeSteps, PnlRng* rng, const
     double computedSpot;
     double timeStep = T / nbTimeSteps;
     pnlMat *cholesky = pnl_mat_create_from_scalar(size_, size_, rho_);
-    for(int i = 0; i < size_; i++)
+    for(int d = 0; d < size_; d++)
     {
-        pnl_mat_set_diag(cholesky, rho_, 1);
+        pnl_mat_set_diag(cholesky, d, 1);
     }
     pnl_mat_chol(cholesky);
     pnl_mat_clone(path, past);
@@ -83,17 +96,17 @@ void asset(PnlMat* path, double t, double T, int nbTimeSteps, PnlRng* rng, const
     pnlVect * gaussianVector = pnl_vect_create(nbTimeSteps + 1 - startingStep);
     pnlVect * nextSpots = pnl_vect_create(size_);
     pnlVect * currentSpots = pnl_vect_create(size_);
-    pnl_mat_get_row(currentSpots, path, 0);
-    for(int i = startingStep; i < nbTimeSteps + 1; i++)
+    pnl_mat_get_row(currentSpots, path, startingStep);
+    for(int i = startingStep + 1; i < nbTimeSteps + 1; i++)
     {
-        pnl_mat_get_row(gaussianVector, gaussian, i); //or i - 1, check that later
+        pnl_mat_get_row(gaussianVector, gaussian, i - startingStep); //or i - 1, check that later
         //compute components of nextspots ( vector ; each element is an underlying share)
         for(int d = 0; d < size_; d++)
         {
             pnl_mat_get_row(choleskyComponent, cholesky, d);
             volatility = pnl_vect_get(sigma_, d);
             scaleCholeskyGaussian = pnl_vect_scalar_prod(choleskyComponent, gaussianVector);
-            computedSpot = pnl_vect_get(currentSpots, d) * exp((r - volatility * volatility / 2) * timeStep + volatility * sqrt(timeStep) * scaleCholeskyGaussian);
+            computedSpot = pnl_vect_get(currentSpots, d) * exp((r_ - volatility * volatility / 2) * (i * T / nbTimeSteps - t) + volatility * sqrt(i * T / nbTimeSteps - t) * scaleCholeskyGaussian);
             pnl_vect_set(nextSpots, d, computedSpot);
         }
         pnl_mat_set_row(path, nextSpots, i);

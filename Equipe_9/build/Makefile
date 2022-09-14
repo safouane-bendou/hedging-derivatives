@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named TestProject
+
+# Build rule for target.
+TestProject: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestProject
+.PHONY : TestProject
+
+# fast build rule for target.
+TestProject/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/build
+.PHONY : TestProject/fast
+
+#=============================================================================
 # Target rules for targets named mc-example
 
 # Build rule for target.
@@ -154,6 +167,30 @@ parser-test: cmake_check_build_system
 parser-test/fast:
 	$(MAKE) $(MAKESILENT) -f src/jlparser/CMakeFiles/parser-test.dir/build.make src/jlparser/CMakeFiles/parser-test.dir/build
 .PHONY : parser-test/fast
+
+src/TestProject.o: src/TestProject.cpp.o
+.PHONY : src/TestProject.o
+
+# target to build an object file
+src/TestProject.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/TestProject.cpp.o
+.PHONY : src/TestProject.cpp.o
+
+src/TestProject.i: src/TestProject.cpp.i
+.PHONY : src/TestProject.i
+
+# target to preprocess a source file
+src/TestProject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/TestProject.cpp.i
+.PHONY : src/TestProject.cpp.i
+
+src/TestProject.s: src/TestProject.cpp.s
+.PHONY : src/TestProject.s
+
+# target to generate assembly for a file
+src/TestProject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/TestProject.cpp.s
+.PHONY : src/TestProject.cpp.s
 
 src/jlparser/parser.o: src/jlparser/parser.cpp.o
 .PHONY : src/jlparser/parser.o
@@ -238,9 +275,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... TestProject"
 	@echo "... mc-example"
 	@echo "... parser-test"
 	@echo "... test-parser"
+	@echo "... src/TestProject.o"
+	@echo "... src/TestProject.i"
+	@echo "... src/TestProject.s"
 	@echo "... src/jlparser/parser.o"
 	@echo "... src/jlparser/parser.i"
 	@echo "... src/jlparser/parser.s"
