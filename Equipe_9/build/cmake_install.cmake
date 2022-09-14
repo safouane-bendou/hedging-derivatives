@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build")
+  set(CMAKE_INSTALL_PREFIX "/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/src/jlparser/cmake_install.cmake")
+  include("/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build/src/jlparser/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

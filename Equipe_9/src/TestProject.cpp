@@ -27,8 +27,8 @@ main(int argc, char** argv)
 
     BasketOption * NewOption = new BasketOption(T, nbTimeSteps, size, strike, payoffCoefficientsVector);
     BlackScholesModel * NewModel = new BlackScholesModel(size, r, rho, sigma, spot);
-    MonteCarlo NewMonteCarlo = new MonteCarlo(NewModel, NewOption, rng, fdStep, nbSamples);
-    NewMonteCarlo.price(prix, std_dev);
+    MonteCarlo * NewMonteCarlo = new MonteCarlo(NewModel, NewOption, rng, fdStep, nbSamples);
+    NewMonteCarlo->price(prix, std_dev);
     cout << "Le prix est: " << prix << "et l'écart-type est:" << std_dev;
 
 

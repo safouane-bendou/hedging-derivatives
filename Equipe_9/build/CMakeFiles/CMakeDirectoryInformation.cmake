@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

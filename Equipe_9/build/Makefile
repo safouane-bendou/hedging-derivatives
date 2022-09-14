@@ -60,7 +60,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build
+CMAKE_BINARY_DIR = /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build/CMakeFiles /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -168,6 +168,78 @@ parser-test/fast:
 	$(MAKE) $(MAKESILENT) -f src/jlparser/CMakeFiles/parser-test.dir/build.make src/jlparser/CMakeFiles/parser-test.dir/build
 .PHONY : parser-test/fast
 
+src/AsianOption.o: src/AsianOption.cpp.o
+.PHONY : src/AsianOption.o
+
+# target to build an object file
+src/AsianOption.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/AsianOption.cpp.o
+.PHONY : src/AsianOption.cpp.o
+
+src/AsianOption.i: src/AsianOption.cpp.i
+.PHONY : src/AsianOption.i
+
+# target to preprocess a source file
+src/AsianOption.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/AsianOption.cpp.i
+.PHONY : src/AsianOption.cpp.i
+
+src/AsianOption.s: src/AsianOption.cpp.s
+.PHONY : src/AsianOption.s
+
+# target to generate assembly for a file
+src/AsianOption.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/AsianOption.cpp.s
+.PHONY : src/AsianOption.cpp.s
+
+src/BasketOption.o: src/BasketOption.cpp.o
+.PHONY : src/BasketOption.o
+
+# target to build an object file
+src/BasketOption.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/BasketOption.cpp.o
+.PHONY : src/BasketOption.cpp.o
+
+src/BasketOption.i: src/BasketOption.cpp.i
+.PHONY : src/BasketOption.i
+
+# target to preprocess a source file
+src/BasketOption.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/BasketOption.cpp.i
+.PHONY : src/BasketOption.cpp.i
+
+src/BasketOption.s: src/BasketOption.cpp.s
+.PHONY : src/BasketOption.s
+
+# target to generate assembly for a file
+src/BasketOption.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/BasketOption.cpp.s
+.PHONY : src/BasketOption.cpp.s
+
+src/BlackScholesModel.o: src/BlackScholesModel.cpp.o
+.PHONY : src/BlackScholesModel.o
+
+# target to build an object file
+src/BlackScholesModel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.o
+.PHONY : src/BlackScholesModel.cpp.o
+
+src/BlackScholesModel.i: src/BlackScholesModel.cpp.i
+.PHONY : src/BlackScholesModel.i
+
+# target to preprocess a source file
+src/BlackScholesModel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.i
+.PHONY : src/BlackScholesModel.cpp.i
+
+src/BlackScholesModel.s: src/BlackScholesModel.cpp.s
+.PHONY : src/BlackScholesModel.s
+
+# target to generate assembly for a file
+src/BlackScholesModel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.s
+.PHONY : src/BlackScholesModel.cpp.s
+
 src/TestProject.o: src/TestProject.cpp.o
 .PHONY : src/TestProject.o
 
@@ -197,6 +269,7 @@ src/jlparser/parser.o: src/jlparser/parser.cpp.o
 
 # target to build an object file
 src/jlparser/parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc-example.dir/build.make CMakeFiles/mc-example.dir/src/jlparser/parser.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test-parser.dir/build.make CMakeFiles/test-parser.dir/src/jlparser/parser.cpp.o
 .PHONY : src/jlparser/parser.cpp.o
@@ -206,6 +279,7 @@ src/jlparser/parser.i: src/jlparser/parser.cpp.i
 
 # target to preprocess a source file
 src/jlparser/parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc-example.dir/build.make CMakeFiles/mc-example.dir/src/jlparser/parser.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test-parser.dir/build.make CMakeFiles/test-parser.dir/src/jlparser/parser.cpp.i
 .PHONY : src/jlparser/parser.cpp.i
@@ -215,6 +289,7 @@ src/jlparser/parser.s: src/jlparser/parser.cpp.s
 
 # target to generate assembly for a file
 src/jlparser/parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestProject.dir/build.make CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc-example.dir/build.make CMakeFiles/mc-example.dir/src/jlparser/parser.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test-parser.dir/build.make CMakeFiles/test-parser.dir/src/jlparser/parser.cpp.s
 .PHONY : src/jlparser/parser.cpp.s
@@ -279,6 +354,15 @@ help:
 	@echo "... mc-example"
 	@echo "... parser-test"
 	@echo "... test-parser"
+	@echo "... src/AsianOption.o"
+	@echo "... src/AsianOption.i"
+	@echo "... src/AsianOption.s"
+	@echo "... src/BasketOption.o"
+	@echo "... src/BasketOption.i"
+	@echo "... src/BasketOption.s"
+	@echo "... src/BlackScholesModel.o"
+	@echo "... src/BlackScholesModel.i"
+	@echo "... src/BlackScholesModel.s"
 	@echo "... src/TestProject.o"
 	@echo "... src/TestProject.i"
 	@echo "... src/TestProject.s"

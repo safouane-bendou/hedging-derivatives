@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build")
+  set(CMAKE_INSTALL_PREFIX "/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/Build")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
