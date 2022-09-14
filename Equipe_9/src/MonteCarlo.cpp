@@ -1,4 +1,5 @@
 #include "MonteCarlo.hpp"
+using namespace std;
 
 MonteCarlo::MonteCarlo(BlackScholesModel* mod, Option* opt, PnlRng* rng, double fdStep, long nbSamples)
 {
@@ -17,18 +18,20 @@ void MonteCarlo::price(double& prix, double& std_dev){
     PnlVect* ActionPrices = pnl_vect_create(n);
     double sum = 0;
     double sumDesCarres = 0;
-    for(int i =0; i < nbSamples_; i++){
+    for(int round = 0; round < nbSamples_; round++){
         mod_->asset(path, opt_->T_, n-1, rng_);
+        //cout << MGET(path, 130, 5);
         sum += opt_->payoff(path);
-        sumDesCarres += pow(opt_->payoff(path), 2);
+        sumDesCarres += pow(opt_->payoff(path), 2);  
     }
-        double ourPrice = (sum/nbSamples_)*exp(-(mod_->r_)*(opt_->T_));
+        double ourPrice = (sum/(double)nbSamples_)*exp(-(mod_->r_)*(opt_->T_));
         prix = ourPrice; // Valeur de l'option 
 
-        // Calcul de l'écart-type:
+        // Calcul de l'écart-type:1
         double s = pow(sum/nbSamples_,2);
         double volatility = (sumDesCarres/nbSamples_ - s)*exp(-2*(mod_->r_)*(opt_->T_));
         std_dev = pow(volatility, 0.5); //valeur de l'écart-type
+        std_dev *= 1.96 / sqrt(nbSamples_);
 }
 
 

@@ -1,4 +1,5 @@
 #include"AsianOption.hpp"
+using namespace std;
 
 AsianOption::AsianOption(double T, int nbTimeSteps, int size, double strike, PnlVect* payoffCoefficientsVector)
 {
@@ -10,20 +11,21 @@ AsianOption::AsianOption(double T, int nbTimeSteps, int size, double strike, Pnl
 }
 double AsianOption::payoff(const PnlMat* path)
 {
-    int n = nbTimeSteps_ + 1;
     double sum = 0;
-    for (int i = 0; i < size_; i++) {
-
-        PnlVect* ActionPrices = pnl_vect_create(n);
-        pnl_mat_get_col(ActionPrices, path, i);
-        double SumofPrices = pnl_vect_sum(ActionPrices);
-        sum += SumofPrices* pnl_vect_get(payoffCoefficientsVector_, i);
-
+    for (int d = 0; d < size_; d++)
+    {
+        PnlVect* sharePrices = pnl_vect_create(nbTimeSteps_ + 1);
+        pnl_mat_get_col(sharePrices, path, d);
+        double sumofPrices = pnl_vect_sum(sharePrices);
+        sum += sumofPrices * pnl_vect_get(payoffCoefficientsVector_, d);
     }
-    double ourPayoff = (sum / n) - strike_;
-    if (ourPayoff >= 0) {
+    double ourPayoff = (sum / (double) (nbTimeSteps_ + 1)) - strike_;
+    if (ourPayoff > 0)
+    {
         return ourPayoff;
-    } else {
+    } 
+    else
+    {
         return 0;
     }
 

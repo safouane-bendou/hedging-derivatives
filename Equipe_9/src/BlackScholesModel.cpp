@@ -1,5 +1,6 @@
 #include <iostream>
 #include "BlackScholesModel.hpp"
+using namespace std;
 
 
 
@@ -30,9 +31,9 @@ void BlackScholesModel::asset(PnlMat* path, double T, int nbTimeSteps, PnlRng* r
     double computedSpot;
     double timeStep = T / nbTimeSteps;
     PnlMat *cholesky = pnl_mat_create_from_scalar(size_, size_, rho_);
-    for(int i = 0; i < size_; i++)
+    for(int d = 0; d < size_; d++)
     {
-        pnl_mat_set_diag(cholesky, rho_, 1);
+        pnl_mat_set_diag(cholesky, 1, d);
     }
     pnl_mat_chol(cholesky);
     PnlMat * gaussian = pnl_mat_create(nbTimeSteps + 1, size_);
@@ -40,11 +41,11 @@ void BlackScholesModel::asset(PnlMat* path, double T, int nbTimeSteps, PnlRng* r
     pnl_mat_set_row(path, spot_, 0);
     //initiating
     PnlVect * choleskyComponent = pnl_vect_create(size_);
-    PnlVect * gaussianVector = pnl_vect_create(nbTimeSteps + 1);
+    PnlVect * gaussianVector = pnl_vect_create(size_);
     PnlVect * nextSpots = pnl_vect_create(size_);
     PnlVect * currentSpots = pnl_vect_create(size_);
     pnl_mat_get_row(currentSpots, path, 0);
-    for(int i = 1; i < nbTimeSteps + 1; i ++)
+    for(int i = 1; i < nbTimeSteps + 1; i++)
     {
         pnl_mat_get_row(gaussianVector, gaussian, i); //or i - 1, check that later
         //compute components of nextspots ( vector ; each element is an underlying share)
@@ -54,10 +55,12 @@ void BlackScholesModel::asset(PnlMat* path, double T, int nbTimeSteps, PnlRng* r
             volatility = pnl_vect_get(sigma_, d);
             scaleCholeskyGaussian = pnl_vect_scalar_prod(choleskyComponent, gaussianVector);
             computedSpot = pnl_vect_get(currentSpots, d) * exp((r_ - volatility * volatility / 2) * timeStep + volatility * sqrt(timeStep) * scaleCholeskyGaussian);
+            //pnl_mat_set(path, i, d, pnl_mat_get(path, i - 1, d) * exp((r_ - volatility * volatility / 2) * timeStep + volatility * sqrt(timeStep) * scaleCholeskyGaussian));
             pnl_vect_set(nextSpots, d, computedSpot);
+            //cout << pnl_vect_get(choleskyComponent, 1);
         }
         pnl_mat_set_row(path, nextSpots, i);
-        * currentSpots = * nextSpots;
+        currentSpots = nextSpots;
     }
     
 }
@@ -110,6 +113,6 @@ void BlackScholesModel::asset(PnlMat* path, double t, double T, int nbTimeSteps,
             pnl_vect_set(nextSpots, d, computedSpot);
         }
         pnl_mat_set_row(path, nextSpots, i);
-        * currentSpots = * nextSpots;
+        currentSpots = nextSpots;
     }
 }
