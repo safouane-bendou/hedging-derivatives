@@ -129,7 +129,7 @@ void BlackScholesModel::asset(PnlMat* path, double t, double T, int nbTimeSteps,
  */
 void BlackScholesModel::shiftAsset(PnlMat* shift_path, const PnlMat* path, int d, double h, double t, double timestep)
 {
-    int startingStep = (int) t / timestep;
+    int startingStep = (int)(t / timestep);
     pnl_mat_clone(shift_path, path);
 
     PnlVect* shiftComponent = pnl_vect_create(size_);
