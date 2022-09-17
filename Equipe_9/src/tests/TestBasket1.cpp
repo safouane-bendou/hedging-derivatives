@@ -30,6 +30,9 @@ int main(int argc, char** argv)
     MonteCarlo * NewMonteCarlo = new MonteCarlo(NewModel, NewOption, rng, fdStep, nbSamples);
     NewMonteCarlo->price(prix, std_dev);
     cout << "Le prix est: " << prix << " et l'écart-type est: " << std_dev << endl;
+    
+
+    //Deltas:
     PnlVect* delta = pnl_vect_create(size);
     PnlVect* std_dev_delta = pnl_vect_create(size);
     NewMonteCarlo->delta(delta, std_dev_delta);

@@ -85,7 +85,7 @@ void BlackScholesModel::asset(PnlMat* path, double t, double T, int nbTimeSteps,
     pnl_mat_get_row(savedSpot, past, past->m - 1);   // get last row of past
     PnlMat * uniformPast = pnl_mat_create(past->m - 1, size_);
     pnl_mat_extract_subblock(uniformPast, past, 0, past->m - 1, 0, size_);
-    if(t / timeStep == (int)(t / timeStep))
+    if(t / timeStep == (int)(t / timeStep) or t / timeStep < 1)
     {
         pnl_mat_set_subblock(path, past, 0, 0);
         startingStep = past->m;
@@ -106,7 +106,7 @@ void BlackScholesModel::asset(PnlMat* path, double t, double T, int nbTimeSteps,
             pnl_mat_get_row(choleskyComponent, cholesky, d);
             double deviation = pnl_vect_get(sigma_, d);
             double scaleCholeskyGaussian = pnl_vect_scalar_prod(choleskyComponent, gaussianVector);
-            double computedShare = pnl_vect_get(savedSpot, d) * exp((r_ - deviation * deviation / 2) * timeStep + deviation * sqrt(timeStep) * scaleCholeskyGaussian);
+            double computedShare = pnl_vect_get(savedSpot, d) * exp((r_ - deviation * deviation / 2) * (i * timeStep - t) + deviation * sqrt(i * timeStep - t) * scaleCholeskyGaussian);
             pnl_vect_set(nextShares, d, computedShare);
         }
         pnl_mat_set_row(path, nextShares, i);

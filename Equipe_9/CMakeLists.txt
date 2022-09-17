@@ -68,6 +68,9 @@ target_link_libraries(TestBasket2 jl_parser ${LIBS})
 add_executable(TestPerformance src/tests/TestPerformance.cpp src/BlackScholesModel.cpp src/AsianOption.cpp src/BasketOption.cpp src/MonteCarlo.cpp src/PerformanceOption.cpp)
 target_link_libraries(TestPerformance jl_parser ${LIBS})
 
+add_executable(TestBasket1FullTime src/tests/TestBasket1FullTime.cpp src/BlackScholesModel.cpp src/AsianOption.cpp src/BasketOption.cpp src/MonteCarlo.cpp src/PerformanceOption.cpp)
+target_link_libraries(TestBasket1FullTime jl_parser ${LIBS})
+
 # Print compiler flags
 get_directory_property(DirDefs COMPILE_DEFINITIONS)
 message(STATUS "COMPILE_DEFINITIONS = ${DirDefs}")

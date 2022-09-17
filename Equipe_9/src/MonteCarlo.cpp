@@ -31,7 +31,7 @@ void MonteCarlo::price(double& prix, double& std_dev){
         sum += opt_->payoff(path);
         sumDesCarres += pow(opt_->payoff(path), 2);  
     }
-    double ourPrice = (sum/(double)nbSamples_)*exp(-(mod_->r_)*(opt_->T_));
+    double ourPrice = (sum/nbSamples_)*exp(-(mod_->r_)*(opt_->T_));
     prix = ourPrice; // Valeur de l'option 
 
     // Calcul de l'écart-type:1
@@ -86,21 +86,21 @@ void MonteCarlo::price(const PnlMat* past, double t, double& prix, double& std_d
 void MonteCarlo::delta(PnlVect* delta, PnlVect* std_dev)
 {
     // Calcul du delta en t = 0
-    PnlVect* ourSpots = mod_->spot_;
-    int nombreActifs = (mod_->size_);
+
     double timestep = (opt_->T_)/(opt_->nbTimeSteps_);
-    PnlMat* path = pnl_mat_create (opt_->nbTimeSteps_ + 1, nombreActifs);
-    PnlMat* shift_path =  pnl_mat_create (opt_->nbTimeSteps_ + 1, nombreActifs);
+    PnlMat* path = pnl_mat_create (opt_->nbTimeSteps_ + 1, mod_->size_);
+    PnlMat* shift_path_up =  pnl_mat_create (opt_->nbTimeSteps_ + 1, mod_->size_);
+    PnlMat* shift_path_down =  pnl_mat_create (opt_->nbTimeSteps_ + 1, mod_->size_);
 
     for(int round = 0; round < nbSamples_; round++)
     {
         mod_->asset(path, opt_->T_, opt_->nbTimeSteps_, rng_);
-        for(int d = 0; d < nombreActifs; d++)
+        for(int d = 0; d < mod_->size_; d++)
         {
-            mod_->shiftAsset(shift_path, path, d, fdStep_, 0, timestep);
-            double payoffUp = opt_->payoff(shift_path);
-            mod_->shiftAsset(shift_path, path, d, -fdStep_, 0, timestep);
-            double payoffDown = opt_->payoff(shift_path);
+            mod_->shiftAsset(shift_path_up, path, d, fdStep_, 0, timestep);
+            mod_->shiftAsset(shift_path_down, path, d, -fdStep_, 0, timestep);
+            double payoffUp = opt_->payoff(shift_path_up);
+            double payoffDown = opt_->payoff(shift_path_down);
             double shareDelta = pnl_vect_get(delta, d);
             shareDelta += payoffUp - payoffDown;
             pnl_vect_set(delta, d, shareDelta);
@@ -110,8 +110,8 @@ void MonteCarlo::delta(PnlVect* delta, PnlVect* std_dev)
         }
 
     }
-
-    for(int d = 0; d < nombreActifs; d++)
+    PnlVect* ourSpots = mod_->spot_;
+    for(int d = 0; d < mod_->size_; d++)
     {
         double initialValuePerAction = pnl_vect_get(ourSpots, d);
         double shareDelta = pnl_vect_get(delta, d);
@@ -139,21 +139,19 @@ void MonteCarlo::delta(PnlVect* delta, PnlVect* std_dev)
 void MonteCarlo::delta(const PnlMat* past, double t, PnlVect* delta, PnlVect* std_dev)
 {
     // calcul du delta en t
-    PnlVect* ourSpots = mod_->spot_;
-    int nombreActifs = (mod_->size_);
     double timestep = (opt_->T_)/(opt_->nbTimeSteps_);
-    PnlMat* path = pnl_mat_create (opt_->nbTimeSteps_ + 1, nombreActifs);
-    PnlMat* shift_path =  pnl_mat_create (opt_->nbTimeSteps_ + 1, nombreActifs);
-
+    PnlMat* path = pnl_mat_create (opt_->nbTimeSteps_ + 1, mod_->size_);
+    PnlMat* shift_path_up =  pnl_mat_create (opt_->nbTimeSteps_ + 1, mod_->size_);
+    PnlMat* shift_path_down =  pnl_mat_create (opt_->nbTimeSteps_ + 1, mod_->size_);
     for(int round = 0; round < nbSamples_; round++)
     {
-        mod_->asset(path, opt_->T_, t, opt_->nbTimeSteps_, rng_, past);
-        for(int d = 0; d < nombreActifs; d++)
+        mod_->asset(path, t, opt_->T_, opt_->nbTimeSteps_, rng_, past);
+        for(int d = 0; d < mod_->size_; d++)
         {
-            mod_->shiftAsset(shift_path, path, d, fdStep_, 0, timestep);
-            double payoffUp = opt_->payoff(shift_path);
-            mod_->shiftAsset(shift_path, path, d, -fdStep_, 0, timestep);
-            double payoffDown = opt_->payoff(shift_path);
+            mod_->shiftAsset(shift_path_up, path, d, fdStep_, t, timestep);
+            mod_->shiftAsset(shift_path_down, path, d, -fdStep_, t, timestep);
+            double payoffUp = opt_->payoff(shift_path_up);
+            double payoffDown = opt_->payoff(shift_path_down);
             double shareDelta = pnl_vect_get(delta, d);
             shareDelta += payoffUp - payoffDown;
             pnl_vect_set(delta, d, shareDelta);
@@ -161,10 +159,10 @@ void MonteCarlo::delta(const PnlMat* past, double t, PnlVect* delta, PnlVect* st
             deviation += pow(payoffUp - payoffDown, 2);
             pnl_vect_set(std_dev, d, deviation);
         }
-
     }
-
-    for(int d = 0; d < nombreActifs; d++)
+    PnlVect* ourSpots = pnl_vect_create(mod_->size_);
+    pnl_mat_get_row(ourSpots, past, past->m - 1);
+    for(int d = 0; d < mod_->size_; d++)
     {
         double initialValuePerAction = pnl_vect_get(ourSpots, d);
         double shareDelta = pnl_vect_get(delta, d);
