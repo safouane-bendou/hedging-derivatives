@@ -7,6 +7,6 @@ class PerformanceOption : public Option
     PnlVect* payoffCoefficientsVector_;
 
 
-    PerformanceOption::PerformanceOption(double T, int nbTimeSteps, int size, PnlVect* payoffCoefficientsVector);
+    PerformanceOption(double T, int nbTimeSteps, int size, PnlVect* payoffCoefficientsVector);
     double payoff(const PnlMat* path);
 };

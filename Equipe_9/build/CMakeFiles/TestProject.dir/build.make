@@ -69,19 +69,19 @@ include CMakeFiles/TestProject.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TestProject.dir/flags.make
 
-CMakeFiles/TestProject.dir/src/TestProject.cpp.o: CMakeFiles/TestProject.dir/flags.make
-CMakeFiles/TestProject.dir/src/TestProject.cpp.o: ../src/TestProject.cpp
-CMakeFiles/TestProject.dir/src/TestProject.cpp.o: CMakeFiles/TestProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestProject.dir/src/TestProject.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestProject.dir/src/TestProject.cpp.o -MF CMakeFiles/TestProject.dir/src/TestProject.cpp.o.d -o CMakeFiles/TestProject.dir/src/TestProject.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/TestProject.cpp
+CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o: CMakeFiles/TestProject.dir/flags.make
+CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o: ../src/tests/TestProject.cpp
+CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o: CMakeFiles/TestProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o -MF CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o.d -o CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestProject.cpp
 
-CMakeFiles/TestProject.dir/src/TestProject.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestProject.dir/src/TestProject.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/TestProject.cpp > CMakeFiles/TestProject.dir/src/TestProject.cpp.i
+CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestProject.cpp > CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.i
 
-CMakeFiles/TestProject.dir/src/TestProject.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestProject.dir/src/TestProject.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/TestProject.cpp -o CMakeFiles/TestProject.dir/src/TestProject.cpp.s
+CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestProject.cpp -o CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.s
 
 CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.o: CMakeFiles/TestProject.dir/flags.make
 CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.o: ../src/BlackScholesModel.cpp
@@ -139,10 +139,24 @@ CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/MonteCarlo.cpp -o CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.s
 
+CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o: CMakeFiles/TestProject.dir/flags.make
+CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o: ../src/PerformanceOption.cpp
+CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o: CMakeFiles/TestProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o -MF CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o.d -o CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/PerformanceOption.cpp
+
+CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/PerformanceOption.cpp > CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.i
+
+CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/PerformanceOption.cpp -o CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.s
+
 CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o: CMakeFiles/TestProject.dir/flags.make
 CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o: ../src/jlparser/parser.cpp
 CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o: CMakeFiles/TestProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o -MF CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o.d -o CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/jlparser/parser.cpp
 
 CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.i: cmake_force
@@ -155,28 +169,30 @@ CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.s: cmake_force
 
 # Object files for target TestProject
 TestProject_OBJECTS = \
-"CMakeFiles/TestProject.dir/src/TestProject.cpp.o" \
+"CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o" \
 "CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.o" \
 "CMakeFiles/TestProject.dir/src/AsianOption.cpp.o" \
 "CMakeFiles/TestProject.dir/src/BasketOption.cpp.o" \
 "CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.o" \
+"CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o" \
 "CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o"
 
 # External object files for target TestProject
 TestProject_EXTERNAL_OBJECTS =
 
-TestProject: CMakeFiles/TestProject.dir/src/TestProject.cpp.o
+TestProject: CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o
 TestProject: CMakeFiles/TestProject.dir/src/BlackScholesModel.cpp.o
 TestProject: CMakeFiles/TestProject.dir/src/AsianOption.cpp.o
 TestProject: CMakeFiles/TestProject.dir/src/BasketOption.cpp.o
 TestProject: CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.o
+TestProject: CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o
 TestProject: CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o
 TestProject: CMakeFiles/TestProject.dir/build.make
 TestProject: /Users/macbookpro/Desktop/pnl/build/lib/libpnl.dylib
 TestProject: /Users/macbookpro/opt/anaconda3/lib/libmpi.dylib
 TestProject: /Users/macbookpro/opt/anaconda3/lib/libpmpi.dylib
 TestProject: CMakeFiles/TestProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable TestProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable TestProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TestProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

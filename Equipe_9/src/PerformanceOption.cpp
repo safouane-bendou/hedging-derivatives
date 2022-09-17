@@ -26,7 +26,7 @@ double PerformanceOption::payoff(const PnlMat* path)
         pnl_mat_get_row(ActionPricesDateII, path, i+1);
         pnl_mat_get_row(ActionPricesDateI, path, i);
 
-        sum = (pnl_vect_scalar_prod(payoffCoefficientsVector, ActionPricesDateII)) / pnl_vect_scalar_prod(payoffCoefficientsVector, ActionPricesDateI) - 1;
+        sum = (pnl_vect_scalar_prod(payoffCoefficientsVector_, ActionPricesDateII)) / pnl_vect_scalar_prod(payoffCoefficientsVector_, ActionPricesDateI) - 1;
         if (sum > 0) {
             overallSum += sum;
         }
@@ -37,4 +37,4 @@ double PerformanceOption::payoff(const PnlMat* path)
     
 }
 
-PerformanceOption::~PerformanceOption(){};
+//PerformanceOption::~PerformanceOption(){};

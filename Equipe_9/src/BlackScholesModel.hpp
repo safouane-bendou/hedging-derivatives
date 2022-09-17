@@ -14,13 +14,20 @@ class BlackScholesModel
     double rho_;     /// paramètre de corrélation
     PnlVect* sigma_; /// vecteur de volatilités
     PnlVect* spot_;  /// valeurs initiales des sous-jacents
+    PnlMat* cholesky;
+    PnlVect* choleskyComponent;
+    PnlVect* gaussianVector;
+    PnlVect* currentShares;
+    PnlVect* nextShares;
 
 
 
     BlackScholesModel(int size, double r, double rho, PnlVect* sigma, PnlVect* spot);
 
 
+    void choleskyComposition(PnlMat* cholesky);
     
+
     /**
      * Génère une trajectoire du modèle et la stocke dans path
      *

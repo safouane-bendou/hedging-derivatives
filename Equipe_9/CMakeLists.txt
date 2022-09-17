@@ -50,8 +50,23 @@ target_link_libraries(test-parser jl_parser ${LIBS})
 add_executable(mc-example src/mc_example.cpp)
 target_link_libraries(mc-example jl_parser ${LIBS})
 
-add_executable(TestProject src/TestProject.cpp src/BlackScholesModel.cpp src/AsianOption.cpp src/BasketOption.cpp src/MonteCarlo.cpp)
+add_executable(TestProject src/tests/TestProject.cpp src/BlackScholesModel.cpp src/AsianOption.cpp src/BasketOption.cpp src/MonteCarlo.cpp src/PerformanceOption.cpp)
 target_link_libraries(TestProject jl_parser ${LIBS})
+
+add_executable(TestAsian src/tests/TestAsian.cpp src/BlackScholesModel.cpp src/AsianOption.cpp src/BasketOption.cpp src/MonteCarlo.cpp src/PerformanceOption.cpp)
+target_link_libraries(TestAsian jl_parser ${LIBS})
+
+add_executable(TestBasket src/tests/TestBasket.cpp src/BlackScholesModel.cpp src/AsianOption.cpp src/BasketOption.cpp src/MonteCarlo.cpp src/PerformanceOption.cpp)
+target_link_libraries(TestBasket jl_parser ${LIBS})
+
+add_executable(TestBasket1 src/tests/TestBasket1.cpp src/BlackScholesModel.cpp src/AsianOption.cpp src/BasketOption.cpp src/MonteCarlo.cpp src/PerformanceOption.cpp)
+target_link_libraries(TestBasket1 jl_parser ${LIBS})
+
+add_executable(TestBasket2 src/tests/TestBasket2.cpp src/BlackScholesModel.cpp src/AsianOption.cpp src/BasketOption.cpp src/MonteCarlo.cpp src/PerformanceOption.cpp)
+target_link_libraries(TestBasket2 jl_parser ${LIBS})
+
+add_executable(TestPerformance src/tests/TestPerformance.cpp src/BlackScholesModel.cpp src/AsianOption.cpp src/BasketOption.cpp src/MonteCarlo.cpp src/PerformanceOption.cpp)
+target_link_libraries(TestPerformance jl_parser ${LIBS})
 
 # Print compiler flags
 get_directory_property(DirDefs COMPILE_DEFINITIONS)

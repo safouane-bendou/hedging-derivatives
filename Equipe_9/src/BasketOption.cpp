@@ -17,7 +17,7 @@ double BasketOption::payoff(const PnlMat* path)
     double sum = pnl_vect_scalar_prod(payoffCoefficientsVector_, ActionPricesInT);
     
     double Payoff = sum - strike_;
-    if (Payoff >= 0)
+    if (Payoff > 0)
     {
         return Payoff;
     } 
