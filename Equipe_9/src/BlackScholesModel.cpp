@@ -5,14 +5,7 @@ using namespace std;
 
 
 
-void BlackScholesModel::choleskyComposition(PnlMat* cholesky)
-{
-    for(int d = 0; d < size_; d++)
-    {
-        pnl_mat_set_diag(cholesky, 1, d);
-    }
-    pnl_mat_chol(cholesky);
-}
+
 
 BlackScholesModel::BlackScholesModel(int size, double r, double rho, PnlVect* sigma, PnlVect* spot)
 {
@@ -32,6 +25,36 @@ BlackScholesModel::BlackScholesModel(int size, double r, double rho, PnlVect* si
 }
 
 
+BlackScholesModel::BlackScholesModel(int size, double r, double rho, PnlVect* sigma, PnlVect* spot, PnlVect* trend)
+{
+    size_ = size;
+    r_ = r;
+    rho_ = rho;
+    sigma_ = pnl_vect_create(size_);
+    pnl_vect_clone(sigma_, sigma);
+    spot_ = pnl_vect_create(size_);
+    pnl_vect_clone(spot_, spot);
+    cholesky = pnl_mat_create_from_scalar(size_, size_, rho_);
+    choleskyComposition(cholesky);
+    choleskyComponent = pnl_vect_create(size_);
+    gaussianVector = pnl_vect_create(size_);
+    currentShares = pnl_vect_create(size_);
+    nextShares = pnl_vect_create(size_);
+    trend_ = pnl_vect_create(size_);
+    pnl_vect_clone(trend_, trend);
+}
+
+
+
+
+void BlackScholesModel::choleskyComposition(PnlMat* cholesky)
+{
+    for(int d = 0; d < size_; d++)
+    {
+        pnl_mat_set_diag(cholesky, 1, d);
+    }
+    pnl_mat_chol(cholesky);
+}
 
 
 /**
@@ -95,7 +118,6 @@ void BlackScholesModel::asset(PnlMat* path, double t, double T, int nbTimeSteps,
         pnl_mat_set_subblock(path, uniformPast, 0, 0);
         startingStep = uniformPast->m;
     }
-
     PnlMat * gaussian = pnl_mat_create(nbTimeSteps + 1 - startingStep, size_);
     pnl_mat_rng_normal(gaussian, nbTimeSteps + 1, size_, rng);
     for(int i = startingStep; i < nbTimeSteps + 1; i++)
@@ -148,9 +170,38 @@ void BlackScholesModel::shiftAsset(PnlMat* shift_path, const PnlMat* path, int d
         pnl_vect_set(shiftComponent, i, shifted);
     }
     pnl_mat_set_col(shift_path, shiftComponent, d);
-
 }
 
+
+/**
+ * renvoie une simulation du marché
+ * @param[out] simulatedData  contient la trajectoire du marché simulé
+ * @param[in] H nombre de dates
+ * @param[in] T date jusqu'à laquelle on simule la trajectoire
+ */
+void BlackScholesModel::simul_market(PnlMat* simulatedData, double H, double T, PnlRng* rng)
+{
+    double timeStep = T / H;
+    pnl_mat_set_row(simulatedData, spot_, 0);
+    PnlMat* gaussian = pnl_mat_create(H, size_);
+    pnl_mat_get_row(currentShares, simulatedData, 0);
+    pnl_mat_rng_normal(gaussian, H + 1, size_, rng);
+    for (int i = 1; i < H+1; i++)
+    {
+        pnl_mat_get_row(gaussianVector, gaussian, i);
+        for (int d = 0; d < size_; d++)
+        {
+            double shareTrend = pnl_vect_get(trend_, d);
+            pnl_mat_get_row(choleskyComponent, cholesky, d);
+            double deviation = pnl_vect_get(sigma_, d);
+            double scaleCholeskyGaussian = pnl_vect_scalar_prod(choleskyComponent, gaussianVector);
+            double computedShare = pnl_vect_get(currentShares, d) * exp((shareTrend - deviation * deviation / 2) * timeStep + deviation * sqrt(timeStep) * scaleCholeskyGaussian);
+            pnl_vect_set(nextShares, d, computedShare);
+        }
+        pnl_mat_set_row(simulatedData, nextShares, i);
+        currentShares = nextShares;
+    }
+}
 
 
 

@@ -57,4 +57,21 @@ class MonteCarlo
      * @param[out] std_dev contient l'écart type de l'estimateur
      */
     void delta(PnlVect* delta, PnlVect* std_dev);
+
+
+    void makeReguralizedPast(PnlMat * past, PnlVect * shares, int i, double H);
+
+
+
+    
+
+    void pAndL(PnlMat * marketData, double &premium, double &pnlError);
+
+
+
+
+
+
+
+
 };

@@ -14,6 +14,7 @@ class BlackScholesModel
     double rho_;     /// paramètre de corrélation
     PnlVect* sigma_; /// vecteur de volatilités
     PnlVect* spot_;  /// valeurs initiales des sous-jacents
+    PnlVect* trend_;
     PnlMat* cholesky;
     PnlVect* choleskyComponent;
     PnlVect* gaussianVector;
@@ -23,6 +24,9 @@ class BlackScholesModel
 
 
     BlackScholesModel(int size, double r, double rho, PnlVect* sigma, PnlVect* spot);
+
+
+    BlackScholesModel(int size, double r, double rho, PnlVect* sigma, PnlVect* spot, PnlVect* trend);
 
 
     void choleskyComposition(PnlMat* cholesky);
@@ -66,4 +70,14 @@ class BlackScholesModel
      * @param[in] timestep pas de constatation du sous-jacent
      */
     void shiftAsset(PnlMat* shift_path, const PnlMat* path, int d, double h, double t, double timestep);
+
+
+
+    /**
+     * renvoie une simulation du marché
+     * @param[out] simulatedData  contient la trajectoire du marché simulé
+     * @param[in] H nombre de dates
+     * @param[in] T date jusqu'à laquelle on simule la trajectoire
+     */
+    void simul_market(PnlMat* simulatedData, double H, double T, PnlRng* rng);
 };

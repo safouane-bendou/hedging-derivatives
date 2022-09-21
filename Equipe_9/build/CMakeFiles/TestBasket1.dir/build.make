@@ -69,19 +69,19 @@ include CMakeFiles/TestBasket1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TestBasket1.dir/flags.make
 
-CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.o: CMakeFiles/TestBasket1.dir/flags.make
-CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.o: ../src/tests/TestBasket1.cpp
-CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.o: CMakeFiles/TestBasket1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.o -MF CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.o.d -o CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestBasket1.cpp
+CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.o: CMakeFiles/TestBasket1.dir/flags.make
+CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.o: ../src/Tests/TestBasket1.cpp
+CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.o: CMakeFiles/TestBasket1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.o -MF CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.o.d -o CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestBasket1.cpp
 
-CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestBasket1.cpp > CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.i
+CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestBasket1.cpp > CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.i
 
-CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestBasket1.cpp -o CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.s
+CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestBasket1.cpp -o CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.s
 
 CMakeFiles/TestBasket1.dir/src/BlackScholesModel.cpp.o: CMakeFiles/TestBasket1.dir/flags.make
 CMakeFiles/TestBasket1.dir/src/BlackScholesModel.cpp.o: ../src/BlackScholesModel.cpp
@@ -169,7 +169,7 @@ CMakeFiles/TestBasket1.dir/src/jlparser/parser.cpp.s: cmake_force
 
 # Object files for target TestBasket1
 TestBasket1_OBJECTS = \
-"CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.o" \
+"CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.o" \
 "CMakeFiles/TestBasket1.dir/src/BlackScholesModel.cpp.o" \
 "CMakeFiles/TestBasket1.dir/src/AsianOption.cpp.o" \
 "CMakeFiles/TestBasket1.dir/src/BasketOption.cpp.o" \
@@ -180,7 +180,7 @@ TestBasket1_OBJECTS = \
 # External object files for target TestBasket1
 TestBasket1_EXTERNAL_OBJECTS =
 
-TestBasket1: CMakeFiles/TestBasket1.dir/src/tests/TestBasket1.cpp.o
+TestBasket1: CMakeFiles/TestBasket1.dir/src/Tests/TestBasket1.cpp.o
 TestBasket1: CMakeFiles/TestBasket1.dir/src/BlackScholesModel.cpp.o
 TestBasket1: CMakeFiles/TestBasket1.dir/src/AsianOption.cpp.o
 TestBasket1: CMakeFiles/TestBasket1.dir/src/BasketOption.cpp.o

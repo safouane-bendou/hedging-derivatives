@@ -9,10 +9,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/TestAsian.dir/src/MonteCarlo.cpp.o.d"
   "CMakeFiles/TestAsian.dir/src/PerformanceOption.cpp.o"
   "CMakeFiles/TestAsian.dir/src/PerformanceOption.cpp.o.d"
+  "CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o"
+  "CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o.d"
   "CMakeFiles/TestAsian.dir/src/jlparser/parser.cpp.o"
   "CMakeFiles/TestAsian.dir/src/jlparser/parser.cpp.o.d"
-  "CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o"
-  "CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o.d"
   "TestAsian"
   "TestAsian.pdb"
 )

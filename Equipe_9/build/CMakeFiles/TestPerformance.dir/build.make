@@ -69,19 +69,19 @@ include CMakeFiles/TestPerformance.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TestPerformance.dir/flags.make
 
-CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.o: CMakeFiles/TestPerformance.dir/flags.make
-CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.o: ../src/tests/TestPerformance.cpp
-CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.o: CMakeFiles/TestPerformance.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.o -MF CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.o.d -o CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestPerformance.cpp
+CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.o: CMakeFiles/TestPerformance.dir/flags.make
+CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.o: ../src/Tests/TestPerformance.cpp
+CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.o: CMakeFiles/TestPerformance.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.o -MF CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.o.d -o CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestPerformance.cpp
 
-CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestPerformance.cpp > CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.i
+CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestPerformance.cpp > CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.i
 
-CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestPerformance.cpp -o CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.s
+CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestPerformance.cpp -o CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.s
 
 CMakeFiles/TestPerformance.dir/src/BlackScholesModel.cpp.o: CMakeFiles/TestPerformance.dir/flags.make
 CMakeFiles/TestPerformance.dir/src/BlackScholesModel.cpp.o: ../src/BlackScholesModel.cpp
@@ -169,7 +169,7 @@ CMakeFiles/TestPerformance.dir/src/jlparser/parser.cpp.s: cmake_force
 
 # Object files for target TestPerformance
 TestPerformance_OBJECTS = \
-"CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.o" \
+"CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.o" \
 "CMakeFiles/TestPerformance.dir/src/BlackScholesModel.cpp.o" \
 "CMakeFiles/TestPerformance.dir/src/AsianOption.cpp.o" \
 "CMakeFiles/TestPerformance.dir/src/BasketOption.cpp.o" \
@@ -180,7 +180,7 @@ TestPerformance_OBJECTS = \
 # External object files for target TestPerformance
 TestPerformance_EXTERNAL_OBJECTS =
 
-TestPerformance: CMakeFiles/TestPerformance.dir/src/tests/TestPerformance.cpp.o
+TestPerformance: CMakeFiles/TestPerformance.dir/src/Tests/TestPerformance.cpp.o
 TestPerformance: CMakeFiles/TestPerformance.dir/src/BlackScholesModel.cpp.o
 TestPerformance: CMakeFiles/TestPerformance.dir/src/AsianOption.cpp.o
 TestPerformance: CMakeFiles/TestPerformance.dir/src/BasketOption.cpp.o

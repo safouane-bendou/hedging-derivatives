@@ -9,10 +9,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/TestBasket1FullTime.dir/src/MonteCarlo.cpp.o.d"
   "CMakeFiles/TestBasket1FullTime.dir/src/PerformanceOption.cpp.o"
   "CMakeFiles/TestBasket1FullTime.dir/src/PerformanceOption.cpp.o.d"
+  "CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o"
+  "CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o.d"
   "CMakeFiles/TestBasket1FullTime.dir/src/jlparser/parser.cpp.o"
   "CMakeFiles/TestBasket1FullTime.dir/src/jlparser/parser.cpp.o.d"
-  "CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o"
-  "CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o.d"
   "TestBasket1FullTime"
   "TestBasket1FullTime.pdb"
 )

@@ -69,19 +69,19 @@ include CMakeFiles/TestBasket1FullTime.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TestBasket1FullTime.dir/flags.make
 
-CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o: CMakeFiles/TestBasket1FullTime.dir/flags.make
-CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o: ../src/tests/TestBasket1FullTime.cpp
-CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o: CMakeFiles/TestBasket1FullTime.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o -MF CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o.d -o CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestBasket1FullTime.cpp
+CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o: CMakeFiles/TestBasket1FullTime.dir/flags.make
+CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o: ../src/Tests/TestBasket1FullTime.cpp
+CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o: CMakeFiles/TestBasket1FullTime.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o -MF CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o.d -o CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestBasket1FullTime.cpp
 
-CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestBasket1FullTime.cpp > CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.i
+CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestBasket1FullTime.cpp > CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.i
 
-CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestBasket1FullTime.cpp -o CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.s
+CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestBasket1FullTime.cpp -o CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.s
 
 CMakeFiles/TestBasket1FullTime.dir/src/BlackScholesModel.cpp.o: CMakeFiles/TestBasket1FullTime.dir/flags.make
 CMakeFiles/TestBasket1FullTime.dir/src/BlackScholesModel.cpp.o: ../src/BlackScholesModel.cpp
@@ -169,7 +169,7 @@ CMakeFiles/TestBasket1FullTime.dir/src/jlparser/parser.cpp.s: cmake_force
 
 # Object files for target TestBasket1FullTime
 TestBasket1FullTime_OBJECTS = \
-"CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o" \
+"CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o" \
 "CMakeFiles/TestBasket1FullTime.dir/src/BlackScholesModel.cpp.o" \
 "CMakeFiles/TestBasket1FullTime.dir/src/AsianOption.cpp.o" \
 "CMakeFiles/TestBasket1FullTime.dir/src/BasketOption.cpp.o" \
@@ -180,7 +180,7 @@ TestBasket1FullTime_OBJECTS = \
 # External object files for target TestBasket1FullTime
 TestBasket1FullTime_EXTERNAL_OBJECTS =
 
-TestBasket1FullTime: CMakeFiles/TestBasket1FullTime.dir/src/tests/TestBasket1FullTime.cpp.o
+TestBasket1FullTime: CMakeFiles/TestBasket1FullTime.dir/src/Tests/TestBasket1FullTime.cpp.o
 TestBasket1FullTime: CMakeFiles/TestBasket1FullTime.dir/src/BlackScholesModel.cpp.o
 TestBasket1FullTime: CMakeFiles/TestBasket1FullTime.dir/src/AsianOption.cpp.o
 TestBasket1FullTime: CMakeFiles/TestBasket1FullTime.dir/src/BasketOption.cpp.o

@@ -69,19 +69,19 @@ include CMakeFiles/TestAsian.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TestAsian.dir/flags.make
 
-CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o: CMakeFiles/TestAsian.dir/flags.make
-CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o: ../src/tests/TestAsian.cpp
-CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o: CMakeFiles/TestAsian.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o -MF CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o.d -o CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestAsian.cpp
+CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o: CMakeFiles/TestAsian.dir/flags.make
+CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o: ../src/Tests/TestAsian.cpp
+CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o: CMakeFiles/TestAsian.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o -MF CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o.d -o CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o -c /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestAsian.cpp
 
-CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestAsian.cpp > CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.i
+CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestAsian.cpp > CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.i
 
-CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/tests/TestAsian.cpp -o CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.s
+CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/macbookpro/Desktop/ENSIMAG/3A/hedging-derivatives/Equipe_9/src/Tests/TestAsian.cpp -o CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.s
 
 CMakeFiles/TestAsian.dir/src/BlackScholesModel.cpp.o: CMakeFiles/TestAsian.dir/flags.make
 CMakeFiles/TestAsian.dir/src/BlackScholesModel.cpp.o: ../src/BlackScholesModel.cpp
@@ -169,7 +169,7 @@ CMakeFiles/TestAsian.dir/src/jlparser/parser.cpp.s: cmake_force
 
 # Object files for target TestAsian
 TestAsian_OBJECTS = \
-"CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o" \
+"CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o" \
 "CMakeFiles/TestAsian.dir/src/BlackScholesModel.cpp.o" \
 "CMakeFiles/TestAsian.dir/src/AsianOption.cpp.o" \
 "CMakeFiles/TestAsian.dir/src/BasketOption.cpp.o" \
@@ -180,7 +180,7 @@ TestAsian_OBJECTS = \
 # External object files for target TestAsian
 TestAsian_EXTERNAL_OBJECTS =
 
-TestAsian: CMakeFiles/TestAsian.dir/src/tests/TestAsian.cpp.o
+TestAsian: CMakeFiles/TestAsian.dir/src/Tests/TestAsian.cpp.o
 TestAsian: CMakeFiles/TestAsian.dir/src/BlackScholesModel.cpp.o
 TestAsian: CMakeFiles/TestAsian.dir/src/AsianOption.cpp.o
 TestAsian: CMakeFiles/TestAsian.dir/src/BasketOption.cpp.o

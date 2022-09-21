@@ -9,10 +9,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/TestProject.dir/src/MonteCarlo.cpp.o.d"
   "CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o"
   "CMakeFiles/TestProject.dir/src/PerformanceOption.cpp.o.d"
+  "CMakeFiles/TestProject.dir/src/Tests/TestProject.cpp.o"
+  "CMakeFiles/TestProject.dir/src/Tests/TestProject.cpp.o.d"
   "CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o"
   "CMakeFiles/TestProject.dir/src/jlparser/parser.cpp.o.d"
-  "CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o"
-  "CMakeFiles/TestProject.dir/src/tests/TestProject.cpp.o.d"
   "TestProject"
   "TestProject.pdb"
 )
