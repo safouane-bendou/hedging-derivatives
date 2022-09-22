@@ -1,6 +1,11 @@
 #include "MonteCarlo.hpp"
 using namespace std;
 
+
+  /**
+     Constructeur à cinq arguments d'un objet Monte carlo
+  */
+
 MonteCarlo::MonteCarlo(BlackScholesModel* mod, Option* opt, PnlRng* rng, double fdStep, long nbSamples)
 {
     mod_ = mod;
@@ -21,8 +26,7 @@ void MonteCarlo::price(double& prix, double& std_dev){
     // Calcul du prix
     int n = (opt_->nbTimeSteps_)+1;
     int nombreActifs = (mod_->size_);
-    PnlMat* path = pnl_mat_create (n, nombreActifs);   
-    
+    PnlMat* path = pnl_mat_create (n, nombreActifs);    
     double sum = 0;
     double sumDesCarres = 0;
     for(int round = 0; round < nbSamples_; round++){
@@ -37,7 +41,7 @@ void MonteCarlo::price(double& prix, double& std_dev){
     double s = pow(sum/nbSamples_, 2);
     double volatility = (sumDesCarres/nbSamples_ - s)*exp(-2*(mod_->r_)*(opt_->T_));
     std_dev = sqrt(volatility/nbSamples_); //valeur de l'écart-type
-       
+    pnl_mat_free(&path);
 }
 
 /**
@@ -69,6 +73,7 @@ void MonteCarlo::price(const PnlMat* past, double t, double& prix, double& std_d
     double s = pow(sum/nbSamples_,2);
     double volatility = (sumDesCarres/nbSamples_ - s)*exp(-2*(mod_->r_)*(opt_->T_-t));
     std_dev = sqrt(volatility/nbSamples_); //valeur de l'écart-type
+    pnl_mat_free(&path);
 
 }
 
@@ -122,6 +127,10 @@ void MonteCarlo::delta(PnlVect* delta, PnlVect* std_dev)
         deviation = sqrt(deviation / nbSamples_);
         pnl_vect_set(std_dev, d, deviation); // valeurs des ecart-type 
     }   
+    pnl_mat_free(&path);
+    pnl_mat_free(&shift_path_up);
+    pnl_mat_free(&shift_path_down);
+
 }
 
 
@@ -174,10 +183,16 @@ void MonteCarlo::delta(const PnlMat* past, double t, PnlVect* delta, PnlVect* st
         deviation = sqrt(deviation / nbSamples_);
         pnl_vect_set(std_dev, d, deviation); // valeurs des ecart-type 
     }   
+    pnl_mat_free(&path);
+    pnl_mat_free(&shift_path_up);
+    pnl_mat_free(&shift_path_down);
+
 }
 
 
-
+ /**
+     Met à jour au fur et à mesure la composition et les dates de past
+ */
 
 void MonteCarlo::makeReguralizedPast(PnlMat * past, PnlVect * shares, int i, double h)
 {
@@ -187,12 +202,13 @@ void MonteCarlo::makeReguralizedPast(PnlMat * past, PnlVect * shares, int i, dou
 
 
 
-
+ /**
+      Calcule l'erreur de couverture du portefeuille 
+ */
 
 void MonteCarlo::pAndL(PnlMat * marketData, double &premium, double &pnlError)
 {
     PnlMat * past = pnl_mat_create(1, marketData->n);
-    PnlVect * initialValue = pnl_vect_create(marketData->n);
     PnlMat * deltaMatrix = pnl_mat_create(marketData->m, marketData->n);
     PnlVect * spots = pnl_vect_create(marketData->n);
     PnlVect * initDelta = pnl_vect_create(marketData->n);
@@ -203,7 +219,6 @@ void MonteCarlo::pAndL(PnlMat * marketData, double &premium, double &pnlError)
     pnl_mat_set_row(past, spots, 0);
 
     MonteCarlo::delta(initDelta, init_delta_std_dev);
-    cout << pnl_vect_get(initDelta, 0);
     pnl_mat_set_row(deltaMatrix, initDelta, 0);
     double value = premium - pnl_vect_scalar_prod(initDelta, spots);   
     for(int i = 1; i < marketData->m; i++)
@@ -221,6 +236,9 @@ void MonteCarlo::pAndL(PnlMat * marketData, double &premium, double &pnlError)
         value = value * exp((mod_->r_ * opt_->T_)/marketData->m);
         value -= pnl_vect_scalar_prod(differenceDeltas, currentShares);
         //pnl_vect_free(&delta_std_dev);
+        pnl_vect_free(&currentDeltas);
+        pnl_vect_free(&delta_std_dev);
+        pnl_vect_free(&previousDeltas);
     }
     PnlVect * lastDeltas = pnl_vect_create(marketData->n);
     pnl_mat_get_row(lastDeltas, deltaMatrix, marketData->m - 1);
@@ -228,10 +246,22 @@ void MonteCarlo::pAndL(PnlMat * marketData, double &premium, double &pnlError)
     pnl_mat_get_row(lastShares, marketData, marketData->m - 1);
     pnlError = value + pnl_vect_scalar_prod(lastDeltas, lastShares) - opt_->payoff(past);
 
+    pnl_vect_free(&lastShares);
+    pnl_vect_free(&lastDeltas);
+    pnl_vect_free(&currentShares);
+    pnl_vect_free(&spots);
+    pnl_vect_free(&initDelta);
+    pnl_vect_free(&init_delta_std_dev);
+    pnl_vect_free(&differenceDeltas);
+    pnl_mat_free(&past);
+    pnl_mat_free(&deltaMatrix);
+
 }
 
-
-
+// Destructeur de la classe Monte Carlo
+MonteCarlo::~MonteCarlo(){
+    pnl_rng_free(&rng_);
+}
 
 
 

@@ -26,7 +26,6 @@ int main(int argc, char** argv)
     PnlRng* rng = pnl_rng_create(0);
     BasketOption * NewOption = new BasketOption(T, nbTimeSteps, size, strike, payoffCoefficientsVector);
     BlackScholesModel * NewModel = new BlackScholesModel(size, r, rho, sigma, spot);
-    //cout << pnl_vect_get(NewModel->modifiedVolatility, 0);
     MonteCarlo * NewMonteCarlo = new MonteCarlo(NewModel, NewOption, rng, fdStep, nbSamples);
     NewMonteCarlo->price(prix, std_dev);
     cout << "Le prix est: " << prix << " et l'écart-type est: " << std_dev << endl;

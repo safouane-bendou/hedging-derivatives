@@ -12,10 +12,10 @@ double BasketOption::payoff(const PnlMat* path)
 {
     
     PnlVect* ActionPricesInT = pnl_vect_create(size_);
-    
     pnl_mat_get_row(ActionPricesInT, path, nbTimeSteps_);
     double sum = pnl_vect_scalar_prod(payoffCoefficientsVector_, ActionPricesInT);
-    
+
+    pnl_vect_free(&ActionPricesInT);
     double Payoff = sum - strike_;
     if (Payoff > 0)
     {
@@ -26,4 +26,6 @@ double BasketOption::payoff(const PnlMat* path)
         return 0;    
     }   
 }
-//BasketOption::~BasketOption(){};
+BasketOption::~BasketOption(){
+    pnl_vect_free(&payoffCoefficientsVector_);
+}

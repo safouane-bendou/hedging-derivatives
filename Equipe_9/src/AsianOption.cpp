@@ -18,6 +18,7 @@ double AsianOption::payoff(const PnlMat* path)
         pnl_mat_get_col(sharePrices, path, d);
         double sumofPrices = pnl_vect_sum(sharePrices);
         sum += sumofPrices * pnl_vect_get(payoffCoefficientsVector_, d);
+        pnl_vect_free(&sharePrices);
     }
     double ourPayoff = (sum / (double) (nbTimeSteps_ + 1)) - strike_;
     if (ourPayoff > 0)
@@ -30,4 +31,6 @@ double AsianOption::payoff(const PnlMat* path)
     }
 
 }
-//AsianOption::~AsianOption(){};
+AsianOption::~AsianOption(){
+    pnl_vect_free(&payoffCoefficientsVector_);
+};

@@ -30,6 +30,8 @@ double PerformanceOption::payoff(const PnlMat* path)
         if (sum > 0) {
             overallSum += sum;
         }
+        pnl_vect_free(&ActionPricesDateII);
+        pnl_vect_free(&ActionPricesDateI);
 
     }
  
@@ -37,4 +39,6 @@ double PerformanceOption::payoff(const PnlMat* path)
     
 }
 
-//PerformanceOption::~PerformanceOption(){};
+PerformanceOption::~PerformanceOption(){
+    pnl_vect_free(&payoffCoefficientsVector_);
+};

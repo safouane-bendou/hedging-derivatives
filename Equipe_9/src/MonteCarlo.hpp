@@ -15,7 +15,9 @@ class MonteCarlo
 
 
 
-
+    /**
+     Constructeur à cinq arguments d'un objet Monte carlo
+    */
 
     MonteCarlo(BlackScholesModel* mod, Option* opt, PnlRng* rng, double fdStep, long nbSamples);
 
@@ -58,16 +60,21 @@ class MonteCarlo
      */
     void delta(PnlVect* delta, PnlVect* std_dev);
 
-
+    /**
+     Vérifie les instants de la mise à jour de la composition deltas par rapport au nbTimeSteps
+    */
     void makeReguralizedPast(PnlMat * past, PnlVect * shares, int i, double H);
 
 
 
     
-
+    /**
+      Calcule l'erreur de couverture du portefeuille 
+     */
     void pAndL(PnlMat * marketData, double &premium, double &pnlError);
-
-
+    
+    // Destructeur de la classe Monte Carlo
+    ~MonteCarlo();
 
 
 

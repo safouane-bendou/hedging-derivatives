@@ -21,15 +21,28 @@ class BlackScholesModel
     PnlVect* currentShares;
     PnlVect* nextShares;
 
-
+    /**
+     Constructeur à quatre paramètres définissant le modèle BlackScholes 
+     */
 
     BlackScholesModel(int size, double r, double rho, PnlVect* sigma, PnlVect* spot);
 
 
+
+    /**
+     Constructeur à cinq paramètres prenant en argument le trend afin de simuler les données de marché
+     */
+
     BlackScholesModel(int size, double r, double rho, PnlVect* sigma, PnlVect* spot, PnlVect* trend);
 
 
+
+    /*
+    calcule la composition de la matrice de cholesky
+    */
     void choleskyComposition(PnlMat* cholesky);
+
+
     
 
     /**
@@ -80,4 +93,7 @@ class BlackScholesModel
      * @param[in] T date jusqu'à laquelle on simule la trajectoire
      */
     void simul_market(PnlMat* simulatedData, double H, double T, PnlRng* rng);
+
+    //Destructeur de la classe
+    ~BlackScholesModel();
 };

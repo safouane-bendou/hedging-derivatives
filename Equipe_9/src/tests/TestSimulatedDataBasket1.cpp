@@ -28,7 +28,6 @@ int main(int argc, char** argv)
     PnlRng* rng = pnl_rng_create(0);
     BasketOption * NewOption = new BasketOption(T, nbTimeSteps, size, strike, payoffCoefficientsVector);
     BlackScholesModel * NewModel = new BlackScholesModel(size, r, rho, sigma, spot, trend);
-    //cout << pnl_vect_get(NewModel->modifiedVolatility, 0);
     NewModel->simul_market(simulatedData, H, T, rng);
 
     PnlVect* testVector = pnl_vect_create(size);
